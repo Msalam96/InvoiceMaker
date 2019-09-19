@@ -1,0 +1,36 @@
+﻿@model InvoiceMaker.FormModels.EditWorkType
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1>Add a Type of Work</h1>
+
+<!-- Notice how Id is now part of the route values for the Edit method
+---- of the ClientsController. That's what that new { Id = Model.Id } does.
+---- It's not part of the "create" form because when you're creating a new
+---- client, it has no id!
+---->
+@using (Html.BeginForm("Edit", "WorkTypes", new { Id = Model.Id }, FormMethod.Post, new { @class = "pure-form pure-form-aligned" }))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <div class="pure-control-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "pure-form-message-inline" })
+        </div>
+
+        <div class="pure-control-group">
+            @Html.LabelFor(model => model.Rate)
+            @Html.EditorFor(model => model.Rate)
+            @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "pure-form-message-inline" })
+        </div>
+
+        <div class="pure-controls">
+            @Html.ActionLink("Cancel", "Index", new { }, new { @class = "pure-button" })
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </div>
+    </fieldset>
+}
