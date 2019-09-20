@@ -7,6 +7,8 @@ namespace InvoiceMaker.Models
 {
     public class WorkLineItem : ILineItem
     {
+        private WorkDone _workDone;
+
         public WorkLineItem(WorkDone workDone)
         {
             Amount = workDone.GetTotal();
