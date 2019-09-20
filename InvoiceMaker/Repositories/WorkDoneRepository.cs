@@ -112,7 +112,7 @@ namespace InvoiceMaker.Repositories
 
         public void Update(WorkDone workDone)
         {
-            _context.WorkDones.Attach(workDone);
+            //_context.WorkDones.Attach(workDone);
             _context.Entry(workDone).State = EntityState.Modified;
             _context.SaveChanges();
             //using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -134,5 +134,6 @@ namespace InvoiceMaker.Repositories
             //    command.ExecuteNonQuery();
             //}
         }
+
     }
 }
