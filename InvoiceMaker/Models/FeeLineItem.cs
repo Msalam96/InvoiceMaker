@@ -7,15 +7,16 @@ namespace InvoiceMaker.Models
 {
     public class FeeLineItem : ILineItem
     {
-        public FeeLineItem(decimal amount, string description, DateTimeOffset when)
+        public FeeLineItem(int id, decimal amount, string description, DateTimeOffset when)
         {
+            Id = id;
             Amount = amount;
             Description = description;
             When = when;
         }
 
         public int Id { get; set; }
-        public decimal Amount { get; private set; }
+        public decimal Amount { get; set; }
         public string Description { get; set; }
         public DateTimeOffset When { get; set; }
 

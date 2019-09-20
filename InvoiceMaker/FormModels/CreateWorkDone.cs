@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace InvoiceMaker.FormModels
 {
-    public class CreatInvoice
+    public class CreateWorkDone
     {
         [Display(Name = "Client Name")]
         public int ClientId { get; set; }
@@ -17,7 +17,7 @@ namespace InvoiceMaker.FormModels
         public DateTimeOffset StartedOn { get; set; }
     }
 
-    public class CreateWorkDoneView : CreatInvoice
+    public class CreateWorkDoneView : CreateWorkDone
     {
         public List<Client> Clients { get; set; }
         public List<WorkType> WorkTypes { get; set; }

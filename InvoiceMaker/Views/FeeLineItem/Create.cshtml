@@ -1,0 +1,30 @@
+﻿@model InvoiceMaker.FormModels.CreateFeeLineItem
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add a FeeLine Item</h2>
+
+@using (Html.BeginForm("Create", "FeeLineItem", FormMethod.Post, new { @class = "pure-form pure-form-aligned" }))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <div class="pure-control-group">
+            @Html.LabelFor(model => model.Description)
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "pure-form-message-inline" })
+        </div>
+
+        <div class="pure-control-group">
+            @Html.LabelFor(model => model.Amount)
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "pure-form-message-inline" })
+        </div>
+        <div class="pure-controls">
+            @Html.ActionLink("Cancel", "Index", new { }, new { @class = "pure-button" })
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </div>
+    </fieldset>
+}

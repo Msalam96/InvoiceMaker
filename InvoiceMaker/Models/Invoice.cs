@@ -6,9 +6,12 @@ namespace InvoiceMaker.Models
 {
     public class Invoice
     {
-        public Invoice() { }
+        public Invoice()
+        {
+            FeeLineItems = new List<FeeLineItem>();
+        }
 
-        public Invoice(int id, string invoiceNumber, Client client)
+        public Invoice(int id, string invoiceNumber, Client client) : this()
         {
             Id = id;
             InvoiceNumber = invoiceNumber;
