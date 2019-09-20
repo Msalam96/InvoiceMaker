@@ -8,19 +8,19 @@ using System.Web.Mvc;
 
 namespace InvoiceMaker.FormModels
 {
-    public class CreatInvoice
+    public class CreateInvoice
     {
+
         [Display(Name = "Client Name")]
         public int ClientId { get; set; }
-        [Display(Name = "Type of Work")]
-        public int WorkTypeId { get; set; }
-        public DateTimeOffset StartedOn { get; set; }
+        public InvoiceStatus Status { get; set; }
+        [Display(Name = "Invoice Number")]
+        public string InvoiceNumber { get; set; }
     }
 
-    public class CreateWorkDoneView : CreatInvoice
+    public class CreateInvoiceView : CreateInvoice
     {
         public List<Client> Clients { get; set; }
-        public List<WorkType> WorkTypes { get; set; }
 
         public List<SelectListItem> ClientSelectListItems
         {
@@ -34,20 +34,5 @@ namespace InvoiceMaker.FormModels
                 return items;
             }
         }
-
-        public List<SelectListItem> WorkTypeSelectListItems
-        {
-            get
-            {
-                List<SelectListItem> items = new List<SelectListItem>();
-                foreach (var workType in WorkTypes)
-                {
-                    items.Add(new SelectListItem { Text = workType.Name, Value = workType.Id.ToString() });
-                }
-                return items;
-            }
-        }
     }
-
-
 }

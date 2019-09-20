@@ -17,7 +17,8 @@ namespace InvoiceMaker
             //Debug.WriteLine("Application_Start");
             RouteConfiguration.AddRoutes(RouteTable.Routes);
 
-            Database.SetInitializer(new CreateDatabaseIfNotExists<Context>());
+            // Database.SetInitializer(new CreateDatabaseIfNotExists<Context>());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         protected void HandleBeginRequest(object sender, EventArgs e)
