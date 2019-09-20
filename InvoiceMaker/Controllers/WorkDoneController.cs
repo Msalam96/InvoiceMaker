@@ -5,6 +5,7 @@ using InvoiceMaker.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,6 +19,7 @@ namespace InvoiceMaker.Controllers
         public WorkDoneController()
         {
             context = new Context();
+            context.Database.Log = (message) => Debug.WriteLine(message);
         }
         // GET: WorkDone
         public ActionResult Index()
@@ -125,6 +127,30 @@ namespace InvoiceMaker.Controllers
             viewModel.Clients = new ClientRepository(context).GetClients();
             viewModel.WorkTypes = new WorkTypeRepository(context).GetWorkTypes();
             return View("Edit", workDone);
+        }
+
+
+        public ActionResult Finish(int id)
+        {
+            var repo = new WorkDoneRepository(context);
+            var workDone = repo.GetById(id);
+            workDone.Finished();
+            try
+            {
+                //Client client = new ClientRepository(context).GetById(workDone.ClientId);
+                //WorkType workType = new WorkTypeRepository(context).GetById(workDone.WorkTypeId);
+                //WorkDone newworkDone = new WorkDone(id, client, workType, workDone.StartedOn, endDate);
+                repo.Update(workDone);
+
+                return RedirectToAction("Index");
+            }
+            catch(Exception exception)
+            {
+
+            }
+
+
+            return RedirectToAction("Index");
         }
     }
 }

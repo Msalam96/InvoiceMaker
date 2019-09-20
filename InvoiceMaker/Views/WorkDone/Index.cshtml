@@ -41,6 +41,12 @@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { Id = workDone.Id })
                 </td>
+                <td>
+                    @using (Html.BeginForm("Finish", "WorkDone", new { id = workDone.Id }, FormMethod.Post))
+                    {
+                        <button class="btn btn-primary" type="submit">Finish</button>
+                    }
+                </td>
             </tr>
         }
     </tbody>

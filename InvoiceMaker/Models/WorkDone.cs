@@ -51,8 +51,9 @@ namespace InvoiceMaker.Models
         public DateTimeOffset StartedOn { get; set; }
         public DateTimeOffset? EndedOn { get; set; }
 
-        public int InvoiceId { get; set; }
-        public Invoice Invoice { get; set; }
+        //public int InvoiceId { get; set; }
+        //public Invoice Invoice { get; set; }
+
         //public string WorkTypeName { get { return workType.Name; } }
         //public int WorkTypeId { get { return workType.Id; } }
         //public decimal WorkTypeRate { get { return workType.Rate; } }

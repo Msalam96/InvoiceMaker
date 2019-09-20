@@ -5,6 +5,8 @@ namespace InvoiceMaker.Models
 {
     public class Invoice
     {
+        public Invoice() { }
+
         public Invoice(string invoiceNumber)
         {
             InvoiceNumber = invoiceNumber;
