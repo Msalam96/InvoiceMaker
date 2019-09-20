@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace InvoiceMaker.Models
 {
@@ -10,7 +11,7 @@ namespace InvoiceMaker.Models
         public Invoice(string invoiceNumber)
         {
             InvoiceNumber = invoiceNumber;
-            LineItems = new List<ILineItem>();
+            //LineItems = new List<ILineItem>();
             Status = InvoiceStatus.Open;
         }
 
@@ -36,18 +37,23 @@ namespace InvoiceMaker.Models
             }
         }
 
-        public void AddWorkLineItem(WorkDone workDone)
-        {
-            LineItems.Add(new WorkLineItem(workDone));
-        }
+        //public void AddWorkLineItem(WorkDone workDone)
+        //{
+        //    LineItems.Add(new WorkLineItem(workDone));
+        //}
 
-        public void AddFeeLineItem(decimal amount, string description, DateTimeOffset when)
-        {
-            LineItems.Add(new FeeLineItem(amount, description, when));
-        }
+        //public void AddFeeLineItem(decimal amount, string description, DateTimeOffset when)
+        //{
+        //    LineItems.Add(new FeeLineItem(amount, description, when));
+        //}
 
-        public InvoiceStatus Status { get; private set; }
-        public string InvoiceNumber { get; private set; }
-        public List<ILineItem> LineItems { get; private set; }
+        public int Id { get; set; }
+        public InvoiceStatus Status { get; set; }
+        [Required]
+        public string InvoiceNumber { get; set; }
+
+        public int ClientId { get; set; }
+        public Client Client { get; set; }
+        //public List<ILineItem> LineItems { get; private set; }
     }
 }
