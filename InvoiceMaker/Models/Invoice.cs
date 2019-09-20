@@ -57,5 +57,7 @@ namespace InvoiceMaker.Models
         public int ClientId { get; set; }
         public Client Client { get; set; }
         //public List<ILineItem> LineItems { get; private set; }
+
+        public List<FeeLineItem> FeeLineItems { get; set; }
     }
 }

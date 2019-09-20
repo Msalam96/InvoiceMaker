@@ -11,7 +11,6 @@ namespace InvoiceMaker.Repositories
     public class InvoiceRepository
     {
         private Context _context;
-        private string _connectionString;
 
         public InvoiceRepository(Context context)
         {
@@ -23,6 +22,13 @@ namespace InvoiceMaker.Repositories
             return _context.Invoices
                 .Include(c => c.Client)
                 .ToList();
+        }
+
+        public Invoice GetInvoice(int id)
+        {
+            return _context.Invoices
+                .Include(c => c.Client)
+                .SingleOrDefault(i => i.Id == id);
         }
 
         public void Insert(Invoice invoice)

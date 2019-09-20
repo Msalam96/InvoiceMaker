@@ -39,7 +39,6 @@ namespace InvoiceMaker.Repositories
             return _context.WorkDones
                 .Include(c => c.Client)
                 .Include(wt => wt.WorkType)
-                .OrderBy(c => c.Client.Name)
                 .SingleOrDefault(wd => wd.Id == id);
             //using (SqlConnection connection = new SqlConnection(_connectionString))
             //{

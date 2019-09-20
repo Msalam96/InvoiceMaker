@@ -64,5 +64,13 @@ namespace InvoiceMaker.Controllers
             viewModel.Clients = new ClientRepository(context).GetClients();
             return View("Create", viewModel);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var repo = new InvoiceRepository(context);
+            Invoice invoice = repo.GetInvoice(id);
+
+            return View("Edit", invoice);
+        }
     }
 }
