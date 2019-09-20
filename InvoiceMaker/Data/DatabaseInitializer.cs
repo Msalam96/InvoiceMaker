@@ -16,8 +16,8 @@ namespace InvoiceMaker.Data
 
             context.Clients.Add(client);
            
-            var invoice = new Invoice("100");
-            invoice.Client = client;
+            var invoice = new Invoice(0, "100", client);
+            //invoice.Client = client;
             context.Invoices.Add(invoice);
 
             context.SaveChanges();

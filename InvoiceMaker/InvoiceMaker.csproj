@@ -107,6 +107,7 @@
     <Content Include="Views\WorkDone\Index.cshtml" />
     <Content Include="Views\WorkDone\Create.cshtml" />
     <Content Include="Views\WorkDone\Edit.cshtml" />
+    <Content Include="Views\Invoices\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -145,6 +146,7 @@
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\DatabaseInitializer.cs" />
     <Compile Include="FormModels\CreateClient.cs" />
+    <Compile Include="FormModels\CreateInvoice.cs" />
     <Compile Include="FormModels\CreateWorkDone.cs" />
     <Compile Include="FormModels\CreateWorkType.cs" />
     <Compile Include="FormModels\EditClient.cs" />

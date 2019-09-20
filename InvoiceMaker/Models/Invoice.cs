@@ -8,15 +8,17 @@ namespace InvoiceMaker.Models
     {
         public Invoice() { }
 
-        public Invoice(string invoiceNumber)
+        public Invoice(int id, string invoiceNumber, Client client)
         {
+            Id = id;
             InvoiceNumber = invoiceNumber;
             //LineItems = new List<ILineItem>();
             Status = InvoiceStatus.Open;
+            Client = client;
         }
 
-        public Invoice(string invoiceNumber, InvoiceStatus status)
-            : this(invoiceNumber)
+        public Invoice(int id, string invoiceNumber, Client client, InvoiceStatus status)
+            : this(id, invoiceNumber, client)
         {
             Status = status;
         }

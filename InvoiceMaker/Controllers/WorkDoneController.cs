@@ -39,7 +39,7 @@ namespace InvoiceMaker.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(CreateWorkDone model)
+        public ActionResult Create(CreatInvoice model)
         {
             try
             {

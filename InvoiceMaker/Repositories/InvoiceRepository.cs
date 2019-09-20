@@ -24,5 +24,11 @@ namespace InvoiceMaker.Repositories
                 .Include(c => c.Client)
                 .ToList();
         }
+
+        public void Insert(Invoice invoice)
+        {
+            _context.Invoices.Add(invoice);
+            _context.SaveChanges();
+        }
     }
 }
