@@ -16,6 +16,7 @@
             <th>Invoice Number</th>
             <th>Client Name</th>
             <th>Status</th>
+            <th></th>
         </tr>
     </thead>
 
@@ -26,9 +27,9 @@
                 <td>@invoice.InvoiceNumber</td>
                 <td>@invoice.Client.Name</td>
                 <td>@invoice.Status</td>
-                @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { Id = client.Id })
-                </td>*@
+                <td>
+                    @Html.ActionLink("Details", "Edit", new { Id = invoice.Id })
+                </td>
             </tr>
         }
     </tbody>

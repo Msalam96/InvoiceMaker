@@ -1,0 +1,29 @@
+﻿@model InvoiceMaker.Models.Invoice
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Invoice Number: @Model.InvoiceNumber </h2>
+<h2>Client Name: @Model.Client.Name</h2>
+<h2>Invoice Status: @Model.Status</h2>
+
+<h3>Line Items</h3>
+
+<table class="pure-table pure-table-bordered">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>When</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tbody>
+</table>
